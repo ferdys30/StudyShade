@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:studyshade_flutter/screen/pelajaran/matematika.dart';
 import 'package:studyshade_flutter/screen/splashscreen.dart';
 import 'package:studyshade_flutter/screen/splashscreen2.dart';
 
@@ -52,7 +53,12 @@ class Home extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30)),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return mtk();
+                            }));
+                          },
                           splashColor: Colors.grey,
                           child: Center(
                             child: Icon(
@@ -70,7 +76,7 @@ class Home extends StatelessWidget {
                     ),
                     Container(
                       child: Text(
-                        'Materi',
+                        'Matematika',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.blue,

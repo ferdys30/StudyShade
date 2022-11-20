@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:studyshade_flutter/screen/splashscreen.dart';
 import 'package:studyshade_flutter/screen/splashscreen2.dart';
+import 'package:studyshade_flutter/screen/login/login.dart';
 
-class izin extends StatelessWidget {
-  const izin({super.key});
+class edt_bio extends StatelessWidget {
+  const edt_bio({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: ListView(
-        children: [
+        children: <Widget>[
           Container(
             child: Card(
               margin: EdgeInsets.all(30),
@@ -24,7 +26,7 @@ class izin extends StatelessWidget {
                     height: 20,
                   ),
                   Container(
-                    child: Text("Form Perizinan",
+                    child: Text("Edit Biodata",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 30.0,
@@ -70,8 +72,23 @@ class izin extends StatelessWidget {
                     width: 300,
                     child: TextFormField(
                       decoration: new InputDecoration(
-                        hintText: "Masukkan Tanggal ",
-                        labelText: "Tanggal",
+                        hintText: "Masukkan NIK",
+                        labelText: "NIK",
+                        icon: Icon(Icons.people),
+                        border: OutlineInputBorder(
+                            borderRadius: new BorderRadius.circular(8.0)),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    width: 300,
+                    child: TextFormField(
+                      decoration: new InputDecoration(
+                        hintText: "Masukkan Tanggal Lahir",
+                        labelText: "Tanggal Lahir",
                         icon: Icon(Icons.date_range),
                         border: OutlineInputBorder(
                             borderRadius: new BorderRadius.circular(8.0)),
@@ -85,42 +102,11 @@ class izin extends StatelessWidget {
                     width: 300,
                     child: TextFormField(
                       decoration: new InputDecoration(
-                        hintText: "Masukkan Alasan",
-                        labelText: "Alasan",
-                        icon: Icon(Icons.note),
+                        hintText: "Masukkan No Telephone",
+                        labelText: "Telephone",
+                        icon: Icon(Icons.phone),
                         border: OutlineInputBorder(
                             borderRadius: new BorderRadius.circular(8.0)),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    width: 300,
-                    child: TextFormField(
-                      decoration: new InputDecoration(
-                        hintText: "Kirim Bukti",
-                        labelText: "Bukti",
-                        icon: Icon(Icons.file_copy),
-                        border: OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(8.0)),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    width: 300,
-                    child: TextFormField(
-                      obscureText: true,
-                      decoration: new InputDecoration(
-                        hintText: "Penjelasan",
-                        labelText: "Penjelasan Detail",
-                        icon: Icon(Icons.task),
-                        border: OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(5.0)),
                       ),
                     ),
                   ),
@@ -165,7 +151,7 @@ class izin extends StatelessWidget {
                               ),
                               onPressed: () {},
                               child: Text(
-                                "Kirim",
+                                "Simpan",
                                 style: TextStyle(
                                   fontSize: 20.0,
                                   fontWeight: FontWeight.bold,
@@ -177,7 +163,7 @@ class izin extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 30,
                   ),
                 ],
               ),

@@ -30,7 +30,7 @@ class regis extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 40.0,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white)),
+                            color: Colors.black)),
                   ),
                   SizedBox(
                     height: 20,
@@ -143,33 +143,51 @@ class regis extends StatelessWidget {
                     height: 20,
                   ),
                   Container(
-                    child: Column(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 51, 136, 53),
-                              onPrimary: Colors.white,
-                              shadowColor: Colors.greenAccent,
-                              elevation: 3,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(32.0)),
-                              minimumSize: Size(200, 50), //////// HERE
-                            ),
-                            onPressed: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return login();
-                              }));
-                            },
-                            child: Text(
-                              "Regist",
-                              style: TextStyle(
-                                fontSize: 30.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                        Container(
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: Color.fromARGB(255, 51, 136, 53),
+                                onPrimary: Colors.white,
+                                shadowColor: Colors.greenAccent,
+                                elevation: 3,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(32.0)),
+                                minimumSize: Size(150, 50), //////// HERE
                               ),
-                            )),
+                              onPressed: () {},
+                              child: Text(
+                                "Batalkan",
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              )),
+                        ),
+                        Container(
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: Color.fromARGB(255, 51, 136, 53),
+                                onPrimary: Colors.white,
+                                shadowColor: Colors.greenAccent,
+                                elevation: 3,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(32.0)),
+                                minimumSize: Size(150, 50), //////// HERE
+                              ),
+                              onPressed: () {},
+                              child: Text(
+                                "Registrasi",
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              )),
+                        ),
                       ],
                     ),
                   ),

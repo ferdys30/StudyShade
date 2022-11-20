@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:studyshade_flutter/screen/biodata.dart';
+import 'package:studyshade_flutter/screen/edit_biodata.dart';
 import 'package:studyshade_flutter/screen/home.dart';
+import 'package:studyshade_flutter/screen/kehadiran/izin.dart';
+import 'package:studyshade_flutter/screen/kehadiran/jadwal.dart';
+import 'package:studyshade_flutter/screen/kehadiran/kehadiran.dart';
+import 'package:studyshade_flutter/screen/kehadiran/rekap.dart';
 import 'package:studyshade_flutter/screen/login/login.dart';
+import 'package:studyshade_flutter/screen/pelajaran/matematika.dart';
 import 'package:studyshade_flutter/screen/splashscreen.dart';
 import 'package:studyshade_flutter/screen/splashscreen2.dart';
 
@@ -41,7 +48,7 @@ class Help extends StatelessWidget {
                           onTap: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return Home();
+                              return bio();
                             }));
                           },
                           splashColor: Colors.grey,
@@ -175,7 +182,12 @@ class Help extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8)),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return mtk();
+                            }));
+                          },
                           splashColor: Colors.grey,
                           child: Center(
                             child: Icon(
@@ -214,7 +226,12 @@ class Help extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8)),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return jdwl();
+                            }));
+                          },
                           splashColor: Colors.grey,
                           child: Center(
                             child: Icon(
@@ -254,7 +271,12 @@ class Help extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8)),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return prsnsi();
+                            }));
+                          },
                           splashColor: Colors.grey,
                           child: Center(
                             child: Icon(
@@ -302,7 +324,12 @@ class Help extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8)),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return rekap();
+                            }));
+                          },
                           splashColor: Colors.grey,
                           child: Center(
                             child: Icon(
@@ -341,7 +368,12 @@ class Help extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8)),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return izin();
+                            }));
+                          },
                           splashColor: Colors.grey,
                           child: Center(
                             child: Icon(
