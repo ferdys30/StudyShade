@@ -7,6 +7,7 @@ import 'package:studyshade_flutter/screen/kehadiran/jadwal.dart';
 import 'package:studyshade_flutter/screen/kehadiran/kehadiran.dart';
 import 'package:studyshade_flutter/screen/kehadiran/rekap.dart';
 import 'package:studyshade_flutter/screen/login/login.dart';
+import 'package:studyshade_flutter/screen/pelajaran/edit_materi.dart';
 import 'package:studyshade_flutter/screen/pelajaran/matematika.dart';
 import 'package:studyshade_flutter/screen/splashscreen.dart';
 import 'package:studyshade_flutter/screen/splashscreen2.dart';
@@ -461,7 +462,12 @@ class Help extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8)),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return edit_materi();
+                            }));
+                          },
                           splashColor: Colors.grey,
                           child: Center(
                             child: Icon(
