@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:studyshade_flutter/screen/login/login.dart';
-import 'package:studyshade_flutter/screen/menu_bantuan.dart';
 
 class splash2 extends StatelessWidget {
   @override
@@ -18,8 +17,8 @@ class splash2 extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Icon(
-                  size: 170,
                   Icons.book,
+                  size: 100.0,
                   color: Colors.white,
                 ),
                 SizedBox(
@@ -31,65 +30,38 @@ class splash2 extends StatelessWidget {
                       fontSize: 40.0,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                    ))
+                    )),
+                Container(
+                  child: Column(children: <Widget>[
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Color.fromARGB(255, 97, 194, 100),
+                          onPrimary: Color.fromARGB(255, 71, 128, 72),
+                          shadowColor: Colors.greenAccent,
+                          elevation: 3,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(32.0)),
+                          minimumSize: Size(300, 60), //////// HERE
+                        ),
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return login();
+                          }));
+                        },
+                        child: Text(
+                          "Continue To Login",
+                          style: TextStyle(
+                            fontSize: 25.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        )),
+                  ]),
+                )
               ],
             ),
           ),
-          Flexible(
-              flex: 1,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 97, 194, 100),
-                        onPrimary: Colors.white,
-                        shadowColor: Colors.greenAccent,
-                        elevation: 3,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(32.0)),
-                        minimumSize: Size(350, 60), //////// HERE
-                      ),
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return Help();
-                        }));
-                      },
-                      child: Text(
-                        "Continue Edit Code",
-                        style: TextStyle(
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      )),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Color.fromARGB(255, 97, 194, 100),
-                        onPrimary: Colors.white,
-                        shadowColor: Colors.greenAccent,
-                        elevation: 3,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(32.0)),
-                        minimumSize: Size(350, 60), //////// HERE
-                      ),
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return login();
-                        }));
-                      },
-                      child: Text(
-                        "Continue To Login",
-                        style: TextStyle(
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      )),
-                ],
-              )),
         ],
       ),
     ));

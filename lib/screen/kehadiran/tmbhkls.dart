@@ -1,19 +1,18 @@
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class tmbh_jdwl extends StatelessWidget {
-  TextEditingController controllermatkul = new TextEditingController();
-  TextEditingController controllerRuang = new TextEditingController();
-  TextEditingController controllerWaktu = new TextEditingController();
-  TextEditingController controllerPembimbing = new TextEditingController();
+class tmbh_kelas extends StatelessWidget {
+  TextEditingController controllernik = new TextEditingController();
+  TextEditingController controllermapel = new TextEditingController();
 
   void addData() {
-    http.post(Uri.parse("http://192.168.1.3/StudyShade/tambahjadwal.php"),
+    http.post(Uri.parse("http://192.168.1.3/StudyShade/tambahkelas.php"),
         body: {
-          "matkul": controllermatkul.text,
-          "ruang": controllerRuang.text,
-          "waktu": controllerWaktu.text,
-          "pembimbing": controllerPembimbing.text,
+          "nik": controllernik.text,
+          "id_matkul": controllermapel.text,
         });
   }
 
@@ -28,10 +27,10 @@ class tmbh_jdwl extends StatelessWidget {
           child: Column(
             children: <Widget>[
               new TextField(
-                controller: controllermatkul,
+                controller: controllernik,
                 decoration: new InputDecoration(
-                  hintText: "Masukkan Mata Pelajaran",
-                  labelText: "Mata Pelajaran",
+                  hintText: "Masukkan NIK Siswa",
+                  labelText: "NIK",
                   icon: Icon(Icons.book),
                   border: OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(8.0)),
@@ -41,10 +40,10 @@ class tmbh_jdwl extends StatelessWidget {
                 height: 10,
               ),
               new TextField(
-                controller: controllerRuang,
+                controller: controllermapel,
                 decoration: new InputDecoration(
-                  hintText: "Masukkan Ruangan",
-                  labelText: "Ruangan",
+                  hintText: "Masukkan ID mata pelajaran",
+                  labelText: "ID Mata Pelajaran",
                   icon: Icon(Icons.home),
                   border: OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(8.0)),
@@ -52,29 +51,6 @@ class tmbh_jdwl extends StatelessWidget {
               ),
               SizedBox(
                 height: 10,
-              ),
-              new TextField(
-                controller: controllerWaktu,
-                decoration: new InputDecoration(
-                  hintText: "Masukkan Waktu",
-                  labelText: "Waktu",
-                  icon: Icon(Icons.timelapse),
-                  border: OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(8.0)),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              new TextField(
-                controller: controllerPembimbing,
-                decoration: new InputDecoration(
-                  hintText: "Masukkan Nama Pembimbing",
-                  labelText: "Nama Pembimbing",
-                  icon: Icon(Icons.person),
-                  border: OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(8.0)),
-                ),
               ),
               new Padding(
                 padding: const EdgeInsets.all(10.0),

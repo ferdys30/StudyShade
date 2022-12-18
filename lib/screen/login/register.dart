@@ -1,24 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:studyshade_flutter/screen/splashscreen.dart';
-import 'package:studyshade_flutter/screen/splashscreen2.dart';
 import 'package:studyshade_flutter/screen/login/login.dart';
+import 'package:http/http.dart' as http;
 
 class regis extends StatelessWidget {
-  const regis({super.key});
+  TextEditingController controllerNama = new TextEditingController();
+  TextEditingController controllerKelas = new TextEditingController();
+  TextEditingController controllerNo_tlp = new TextEditingController();
+  TextEditingController controllerUser = new TextEditingController();
+  TextEditingController controllerPass = new TextEditingController();
+
+  void addData() {
+    http.post(Uri.parse("http://192.168.1.3/StudyShade/regis.php"), body: {
+      "nama": controllerNama.text,
+      "kelas": controllerKelas.text,
+      "no_tlp": controllerNo_tlp.text,
+      "username": controllerUser.text,
+      "password": controllerPass.text,
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: ListView(
-        children: <Widget>[
-          Container(
-            child: Card(
-              margin: EdgeInsets.all(30),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              elevation: 4,
-              color: Color.fromARGB(255, 150, 209, 152),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView(
+          children: <Widget>[
+            Container(
               child: Column(
                 children: [
                   SizedBox(
@@ -37,7 +45,8 @@ class regis extends StatelessWidget {
                   ),
                   Container(
                     width: 300,
-                    child: TextFormField(
+                    child: TextField(
+                      controller: controllerNama,
                       decoration: new InputDecoration(
                         hintText: "masukan nama lengkap anda",
                         labelText: "Nama Lengkap",
@@ -52,22 +61,7 @@ class regis extends StatelessWidget {
                   ),
                   Container(
                     width: 300,
-                    child: TextFormField(
-                      decoration: new InputDecoration(
-                        hintText: "Masukkan NIK",
-                        labelText: "NIK",
-                        icon: Icon(Icons.people),
-                        border: OutlineInputBorder(
-                            borderRadius: new BorderRadius.circular(8.0)),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    width: 300,
-                    child: TextFormField(
+                    child: TextField(
                       decoration: new InputDecoration(
                         hintText: "Masukkan Tanggal Lahir",
                         labelText: "Tanggal Lahir",
@@ -82,7 +76,8 @@ class regis extends StatelessWidget {
                   ),
                   Container(
                     width: 300,
-                    child: TextFormField(
+                    child: TextField(
+                      controller: controllerNo_tlp,
                       decoration: new InputDecoration(
                         hintText: "Masukkan No Telephone",
                         labelText: "Telephone",
@@ -97,7 +92,8 @@ class regis extends StatelessWidget {
                   ),
                   Container(
                     width: 300,
-                    child: TextFormField(
+                    child: TextField(
+                      controller: controllerUser,
                       decoration: new InputDecoration(
                         hintText: "Masukkan Username",
                         labelText: "Username",
@@ -112,7 +108,8 @@ class regis extends StatelessWidget {
                   ),
                   Container(
                     width: 300,
-                    child: TextFormField(
+                    child: TextField(
+                      controller: controllerPass,
                       obscureText: true,
                       decoration: new InputDecoration(
                         hintText: "Password",
@@ -128,7 +125,7 @@ class regis extends StatelessWidget {
                   ),
                   Container(
                     width: 300,
-                    child: TextFormField(
+                    child: TextField(
                       obscureText: true,
                       decoration: new InputDecoration(
                         hintText: "masukan Ulang Password lengkap anda",
@@ -150,7 +147,7 @@ class regis extends StatelessWidget {
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 51, 136, 53),
-                                onPrimary: Colors.white,
+                                onPrimary: Colors.black,
                                 shadowColor: Colors.greenAccent,
                                 elevation: 3,
                                 shape: RoundedRectangleBorder(
@@ -161,9 +158,9 @@ class regis extends StatelessWidget {
                               child: Text(
                                 "Batalkan",
                                 style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
                                 ),
                               )),
                         ),
@@ -171,20 +168,23 @@ class regis extends StatelessWidget {
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 51, 136, 53),
-                                onPrimary: Colors.white,
+                                onPrimary: Colors.black,
                                 shadowColor: Colors.greenAccent,
                                 elevation: 3,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(32.0)),
                                 minimumSize: Size(150, 50), //////// HERE
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                addData();
+                                Navigator.pop(context);
+                              },
                               child: Text(
                                 "Registrasi",
                                 style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.black,
                                 ),
                               )),
                         ),
@@ -203,7 +203,7 @@ class regis extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 15.0,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white)),
+                                color: Colors.black)),
                         TextButton(
                           onPressed: () {
                             Navigator.pop(context);
@@ -218,9 +218,9 @@ class regis extends StatelessWidget {
                   )
                 ],
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

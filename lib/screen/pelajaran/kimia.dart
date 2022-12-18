@@ -3,8 +3,6 @@ import 'package:studyshade_flutter/screen/splashscreen.dart';
 import 'package:studyshade_flutter/screen/splashscreen2.dart';
 
 class kimia extends StatelessWidget {
-  const kimia({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

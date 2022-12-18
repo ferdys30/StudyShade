@@ -1,288 +1,108 @@
 import 'package:flutter/material.dart';
-import 'package:studyshade_flutter/screen/splashscreen.dart';
-import 'package:studyshade_flutter/screen/splashscreen2.dart';
+import 'package:http/http.dart' as http;
 
 class prsnsi extends StatelessWidget {
-  const prsnsi({super.key});
+  TextEditingController controllernik = new TextEditingController();
+  TextEditingController controllerjadwal = new TextEditingController();
+  TextEditingController controllerKehadiran = new TextEditingController();
+  TextEditingController controllerAlasan = new TextEditingController();
+
+  void addData() {
+    http.post(Uri.parse("http://192.168.1.3/StudyShade/presensi.php"), body: {
+      "nik_siswa": controllernik.text,
+      "id_jdwl": controllerjadwal.text,
+      "id_kehadiran": controllerKehadiran.text,
+      "alasan": controllerAlasan.text,
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [
-          Container(
-            child: Card(
-              margin: EdgeInsets.all(30),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0),
+      appBar: new AppBar(
+          title: Text("Presensi"),
+          backgroundColor: Color.fromARGB(255, 51, 136, 53)),
+      body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: <Widget>[
+              new TextField(
+                controller: controllernik,
+                decoration: new InputDecoration(
+                  hintText: "Masukkan Mata Pelajaran",
+                  labelText: "Mata Pelajaran",
+                  icon: Icon(Icons.book),
+                  border: OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(8.0)),
+                ),
               ),
-              elevation: 4,
-              color: Color.fromARGB(255, 97, 194, 100),
-              child: Column(
-                children: [
-                  SizedBox(
-                    width: 370,
-                    height: 20,
-                  ),
-                  Container(
-                    child: Text("Kehadiran",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 0, 0, 0))),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                ],
+              SizedBox(
+                height: 10,
               ),
-            ),
-          ),
-          Container(
-            child: Card(
-              margin: EdgeInsets.all(20),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
+              new TextField(
+                controller: controllerjadwal,
+                decoration: new InputDecoration(
+                  hintText: "Masukkan Ruangan",
+                  labelText: "Ruangan",
+                  icon: Icon(Icons.home),
+                  border: OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(8.0)),
+                ),
               ),
-              elevation: 4,
-              color: Color.fromARGB(255, 155, 204, 156),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    child: Text("Matematika",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 0, 0, 0))),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 51, 136, 53),
-                              onPrimary: Colors.white,
-                              shadowColor: Colors.greenAccent,
-                              elevation: 3,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0)),
-                              minimumSize: Size(350, 50), //////// HERE
-                            ),
-                            onPressed: () {},
-                            child: Text(
-                              "Kehadiran",
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            )),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 51, 136, 53),
-                              onPrimary: Colors.white,
-                              shadowColor: Colors.greenAccent,
-                              elevation: 3,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0)),
-                              minimumSize: Size(350, 50), //////// HERE
-                            ),
-                            onPressed: () {},
-                            child: Text(
-                              "Perizinan",
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            )),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                ],
+              SizedBox(
+                height: 10,
               ),
-            ),
-          ),
-          Container(
-            child: Card(
-              margin: EdgeInsets.all(20),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
+              new TextField(
+                controller: controllerKehadiran,
+                decoration: new InputDecoration(
+                  hintText: "Masukkan Waktu",
+                  labelText: "Waktu",
+                  icon: Icon(Icons.timelapse),
+                  border: OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(8.0)),
+                ),
               ),
-              elevation: 4,
-              color: Color.fromARGB(255, 155, 204, 156),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    child: Text("Biologi",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 0, 0, 0))),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 51, 136, 53),
-                              onPrimary: Colors.white,
-                              shadowColor: Colors.greenAccent,
-                              elevation: 3,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0)),
-                              minimumSize: Size(350, 50), //////// HERE
-                            ),
-                            onPressed: () {},
-                            child: Text(
-                              "Kehadiran",
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            )),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 51, 136, 53),
-                              onPrimary: Colors.white,
-                              shadowColor: Colors.greenAccent,
-                              elevation: 3,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0)),
-                              minimumSize: Size(350, 50), //////// HERE
-                            ),
-                            onPressed: () {},
-                            child: Text(
-                              "Perizinan",
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            )),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                ],
+              SizedBox(
+                height: 10,
               ),
-            ),
-          ),
-          Container(
-            child: Card(
-              margin: EdgeInsets.all(20),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
+              new TextField(
+                controller: controllerAlasan,
+                decoration: new InputDecoration(
+                  hintText: "Masukkan Nama Pembimbing",
+                  labelText: "Nama Pembimbing",
+                  icon: Icon(Icons.person),
+                  border: OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(8.0)),
+                ),
               ),
-              elevation: 4,
-              color: Color.fromARGB(255, 155, 204, 156),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    child: Text("KIMIA",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 30.0,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 0, 0, 0))),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 51, 136, 53),
-                              onPrimary: Colors.white,
-                              shadowColor: Colors.greenAccent,
-                              elevation: 3,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0)),
-                              minimumSize: Size(350, 50), //////// HERE
-                            ),
-                            onPressed: () {},
-                            child: Text(
-                              "Kehadiran",
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            )),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Color.fromARGB(255, 51, 136, 53),
-                              onPrimary: Colors.white,
-                              shadowColor: Colors.greenAccent,
-                              elevation: 3,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0)),
-                              minimumSize: Size(350, 50), //////// HERE
-                            ),
-                            onPressed: () {},
-                            child: Text(
-                              "Perizinan",
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            )),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                ],
+              new Padding(
+                padding: const EdgeInsets.all(10.0),
               ),
-            ),
-          ),
-        ],
-      ),
+              new ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Color.fromARGB(255, 51, 136, 53),
+                  onPrimary: Colors.white,
+                  shadowColor: Colors.greenAccent,
+                  elevation: 3,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(32.0)),
+                  minimumSize: Size(170, 60), //////// HERE
+                ),
+                onPressed: () {
+                  addData();
+                  Navigator.pop(context);
+                },
+                child: new Text(
+                  "Tambah Data",
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          )),
     );
   }
 }

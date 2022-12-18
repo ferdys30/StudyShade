@@ -4,7 +4,6 @@ import 'package:studyshade_flutter/screen/splashscreen2.dart';
 import 'package:studyshade_flutter/screen/login/login.dart';
 
 class edt_bio extends StatelessWidget {
-  const edt_bio({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

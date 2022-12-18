@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:studyshade_flutter/screen/kehadiran/jadwal.dart';
+import 'package:studyshade_flutter/screen/pelajaran/bhs_indo.dart';
+import 'package:studyshade_flutter/screen/pelajaran/bhs_inggris.dart';
+import 'package:studyshade_flutter/screen/pelajaran/biologi.dart';
+import 'package:studyshade_flutter/screen/pelajaran/fisika.dart';
+import 'package:studyshade_flutter/screen/pelajaran/kimia.dart';
 import 'package:studyshade_flutter/screen/pelajaran/matematika.dart';
 import 'package:studyshade_flutter/screen/splashscreen.dart';
 import 'package:studyshade_flutter/screen/splashscreen2.dart';
+import '../kehadiran/jadwaluser.dart';
+import 'login.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,21 +24,18 @@ class Home extends StatelessWidget {
           Container(
               child: Column(
             children: <Widget>[
-              Card(
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    color: Colors.black,
-                    width: 1.0,
+              Container(
+                height: 140,
+                child: Card(
+                  color: Colors.greenAccent.withOpacity(0.9),
+                  child: Center(
+                    child: Text(
+                      "Kelas 12 ",
+                      style: TextStyle(color: Colors.black, fontSize: 40),
+                    ),
                   ),
+                  margin: EdgeInsets.all(30),
                 ),
-                color: Colors.greenAccent.withOpacity(0.5),
-                child: Center(
-                  child: Text(
-                    "Kelas 12 MIPA",
-                    style: TextStyle(color: Colors.black, fontSize: 40),
-                  ),
-                ),
-                margin: EdgeInsets.all(30),
               ),
             ],
           )),
@@ -97,7 +100,12 @@ class Home extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30)),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return kimia();
+                            }));
+                          },
                           splashColor: Colors.grey,
                           child: Center(
                             child: Icon(
@@ -113,7 +121,7 @@ class Home extends StatelessWidget {
                     ),
                     Container(
                       child: Text(
-                        'Materi',
+                        'Kimia',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.blue,
@@ -134,7 +142,12 @@ class Home extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30)),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return fisika();
+                            }));
+                          },
                           splashColor: Colors.grey,
                           child: Center(
                             child: Icon(
@@ -152,7 +165,7 @@ class Home extends StatelessWidget {
                     ),
                     Container(
                       child: Text(
-                        'Materi',
+                        'Fisika',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.blue,
@@ -183,7 +196,12 @@ class Home extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30)),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return biologi();
+                            }));
+                          },
                           splashColor: Colors.grey,
                           child: Center(
                             child: Icon(
@@ -201,7 +219,7 @@ class Home extends StatelessWidget {
                     ),
                     Container(
                       child: Text(
-                        'Materi',
+                        'Biologi',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.blue,
@@ -222,7 +240,12 @@ class Home extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30)),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return bhs_ind();
+                            }));
+                          },
                           splashColor: Colors.grey,
                           child: Center(
                             child: Icon(
@@ -238,7 +261,7 @@ class Home extends StatelessWidget {
                     ),
                     Container(
                       child: Text(
-                        'Materi',
+                        'Bhs Indonesia',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.blue,
@@ -259,7 +282,12 @@ class Home extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30)),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return bhs_ing();
+                            }));
+                          },
                           splashColor: Colors.grey,
                           child: Center(
                             child: Icon(
@@ -275,7 +303,7 @@ class Home extends StatelessWidget {
                     ),
                     Container(
                       child: Text(
-                        'Materi',
+                        'Bhs Inggris',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Colors.blue,
@@ -303,9 +331,45 @@ class Home extends StatelessWidget {
                         borderRadius: BorderRadius.circular(32.0)),
                     minimumSize: Size(300, 60), //////// HERE
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return jdwl_user();
+                    }));
+                  },
                   child: Text(
                     "Jadwal Bimbel",
+                    style: TextStyle(
+                      fontSize: 25.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  )),
+            ]),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            child: Column(children: <Widget>[
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromARGB(255, 187, 51, 51),
+                    onPrimary: Color.fromARGB(255, 155, 104, 104),
+                    shadowColor: Colors.redAccent,
+                    elevation: 3,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0)),
+                    minimumSize: Size(300, 60), //////// HERE
+                  ),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return login();
+                    }));
+                  },
+                  child: Text(
+                    "Keluar",
                     style: TextStyle(
                       fontSize: 25.0,
                       fontWeight: FontWeight.bold,
