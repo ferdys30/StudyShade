@@ -29,8 +29,8 @@ class prsnsi extends StatelessWidget {
               new TextField(
                 controller: controllernik,
                 decoration: new InputDecoration(
-                  hintText: "Masukkan Mata Pelajaran",
-                  labelText: "Mata Pelajaran",
+                  hintText: "Masukkan NIM Siswa",
+                  labelText: "Masukkan NIM",
                   icon: Icon(Icons.book),
                   border: OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(8.0)),
@@ -42,8 +42,8 @@ class prsnsi extends StatelessWidget {
               new TextField(
                 controller: controllerjadwal,
                 decoration: new InputDecoration(
-                  hintText: "Masukkan Ruangan",
-                  labelText: "Ruangan",
+                  hintText: "Code Jadwal",
+                  labelText: "Code Jadwal",
                   icon: Icon(Icons.home),
                   border: OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(8.0)),
@@ -55,8 +55,8 @@ class prsnsi extends StatelessWidget {
               new TextField(
                 controller: controllerKehadiran,
                 decoration: new InputDecoration(
-                  hintText: "Masukkan Waktu",
-                  labelText: "Waktu",
+                  hintText: "Code Kehadiran",
+                  labelText: "Code Kehadiran",
                   icon: Icon(Icons.timelapse),
                   border: OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(8.0)),
@@ -68,8 +68,8 @@ class prsnsi extends StatelessWidget {
               new TextField(
                 controller: controllerAlasan,
                 decoration: new InputDecoration(
-                  hintText: "Masukkan Nama Pembimbing",
-                  labelText: "Nama Pembimbing",
+                  hintText: "Masukkan Alasan",
+                  labelText: "Masukkan Alasan",
                   icon: Icon(Icons.person),
                   border: OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(8.0)),
